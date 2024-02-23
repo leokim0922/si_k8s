@@ -7,7 +7,7 @@ metadata:
     name: flask # label used to identify the deployment
 # ---------------------ReplicaSet---------------------------------
 spec:
-  replicas: 1 # define the number of pods to run
+  replicas: 3 # define the number of pods to run
   selector:
     matchLabels:
       app: flask
@@ -18,6 +18,6 @@ spec:
         app: flask # label used to identify the pod
     spec:
       containers:
-        - name: flask
-          image: registry.digitalocean.com/si-k8s-registry/my-python-app:latest
+        - name: my-python-app
+          image: registry.digitalocean.com/si-k8s-registry-leo/my-python-app
       restartPolicy: Always

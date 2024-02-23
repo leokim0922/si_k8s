@@ -1,7 +1,7 @@
 # Fill the blank and uncomment to use it
 
 apiVersion: v1
-# kind: ________
+kind: Service
 metadata:
   name: postgres
   labels:
@@ -10,5 +10,5 @@ spec:
   selector:
     service: postgres
   type: ClusterIP
-  # _____:
-  # - ______: 5432
+  ports:
+    - port: 5432

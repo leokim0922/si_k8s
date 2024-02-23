@@ -1,7 +1,7 @@
 # Fill the blank and uncomment to use it
 
 apiVersion: apps/v1
-# kind: _______
+kind: Deployment
 metadata:
   name: flask
   labels:
@@ -18,16 +18,16 @@ spec:
     spec:
       containers:
       - name: flask
-        # image: _____________
+        image: registry.digitalocean.com/si-k8s-registry-leo/postgres
         env:
         - name: POSTGRES_USER
           valueFrom:
             secretKeyRef:
-              # name: _______
+              name: postgres-credentials
               key: user
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
-              # name: ________
+              name: postgres-credentials
               key: password
       restartPolicy: Always

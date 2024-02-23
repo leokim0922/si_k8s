@@ -1,22 +1,22 @@
 -----------------------------
-# Prepare volumne for postgres
-kubectl apply -f ______.yaml
+# Prepare volume for postgres
+kubectl apply -f volume-claim.yaml
 kubectl get pvc
 kubectl get pv
 -----------------------------
 # Prepare postgres
-kubectl create -f ______.yaml
+kubectl create -f postgres-deployment.yaml
 kubectl get deployments
 kubectl get pods
-kubectl create -f ______.yaml
+kubectl create -f postgres-service.yaml
 kubectl get service flask postgres
 
 kubectl exec <POD_NAME> --stdin --tty -- createdb -U <USER_NAME> products
 ex) kubectl exec postgres-7d8659d485-xg2zm --stdin --tty -- createdb -U jonghyeok products
 -----------------------------
 # Remove old deployment and create new one
-kubectl delete -f ______.yaml
-kubectl create -f ______.yaml
+kubectl delete -f postgres-deployment.yaml
+kubectl create -f updated-deployment.yaml
 kubectl get service
 -----------------------------
 

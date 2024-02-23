@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: first-pod
+spec:
+  containers:
+  - name: postgres
+    image: registry.digitalocean.com/si-k8s-registry-leo/postgres
+    ports:
+    - containerPort: 5432

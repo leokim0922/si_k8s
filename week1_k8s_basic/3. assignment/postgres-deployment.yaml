@@ -1,12 +1,12 @@
 # Fill the blank and uncomment to use it
 
 apiVersion: apps/v1
-# kind: _______
+kind: Deployment
 metadata:
   name: postgres
   labels:
     name: database
-# ______:
+spec:
   replicas: 1
   selector:
     matchLabels:
@@ -27,13 +27,13 @@ metadata:
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  # name: _______
+                  name: postgres-credentials
                   key: user
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  # name: __________
-                  # key: _________
+                  name: postgres-credentials
+                  key: password
       restartPolicy: Always
       initContainers:
         - name: pgsql-data-permission-fix
@@ -42,7 +42,7 @@ metadata:
           volumeMounts:
             - name: postgres-volume-mount
               mountPath: /data
-      # ______:
+      volumes:
         - name: postgres-volume-mount
           persistentVolumeClaim:
-            # claimName: ________
+            claimName: postgres-pvc
