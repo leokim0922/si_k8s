@@ -2183,7 +2183,7 @@ redis:
 # Auth secret for a private registry
 # This is used if pulling airflow images from a private registry
 registry:
-  secretName: regcred
+  secretName: si-k8s-session
 
   # Example:
   # connection:
@@ -2451,6 +2451,7 @@ dags:
     # should be "" if dags are at repo root
     subPath: ""
     sshKeySecret: airflow-ssh-git-secret
+
     # if your repo needs a user name password
     # you can load them to a k8s secret like the one below
     #   ---
@@ -2481,7 +2482,6 @@ dags:
     #     # key needs to be gitSshKey
     #     gitSshKey: <base64_encoded_data>
     # and specify the name of the secret below
-    # sshKeySecret: airflow-ssh-secret
     #
     # If you are using an ssh private key, you can additionally
     # specify the content of your known_hosts file, example:
