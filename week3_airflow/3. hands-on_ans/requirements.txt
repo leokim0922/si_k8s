@@ -1,0 +1,6 @@
+apache-airflow-providers-postgres
+pydub
+vosk
+xmltodict
+# torch
+# bert-extractive-summarizer
